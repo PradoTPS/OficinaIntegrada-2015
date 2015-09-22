@@ -19,7 +19,9 @@ public class NeedKeyDoor : MonoBehaviour {
 			if (gameObject.tag == "Note") {
 				PlayerPrefs.SetString("HasRead?", "True");
 			}
-			Instantiate(reason);
+
+			Instantiate(reason, new Vector3(Camera.main.transform.position.x, 0.4f, 0), Quaternion.identity);
+
 		}
 	}
 	

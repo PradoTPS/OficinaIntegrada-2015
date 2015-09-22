@@ -38,9 +38,9 @@ public class Player_Mov : MonoBehaviour {
 			} else {
 				finalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				finalPosition = new Vector2(finalPosition.x, finalPosition.y + renderer.bounds.size.y / 2);
-				if(finalPosition.x < gameObject.transform.position.x){
+				if(finalPosition.x < gameObject.transform.position.x && facingRight){
 					Flip();
-				}else if(finalPosition.x > gameObject.transform.position.x){
+				}else if(finalPosition.x > gameObject.transform.position.x && !facingRight){
 					Flip ();
 				}
 

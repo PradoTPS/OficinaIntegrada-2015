@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Faders\Fader_Behaviour.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\NeedKeyDoor.cs">
     <Files>
-      <File FileName="Assets\Faders\Fader_Behaviour.cs" Line="17" Column="62" />
-      <File FileName="Assets\DialogueBoxFolder\Scripts\DialogueBoxBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\NeedKeyDoor.cs" Line="25" Column="4" />
+      <File FileName="Assets\DialogueBoxFolder\Scripts\OpenDialogue.cs" Line="10" Column="63" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -11,6 +11,10 @@ public class DialogueBoxBehaviour : MonoBehaviour {
 	private GameObject character;
 	private int currentText = 0;
 
+	void Start(){
+		gameObject.transform.SetParent (Camera.main.transform);
+	}
+
 	void textChange(){
 		if (Input.GetMouseButtonDown (0)) {
 			currentText++;

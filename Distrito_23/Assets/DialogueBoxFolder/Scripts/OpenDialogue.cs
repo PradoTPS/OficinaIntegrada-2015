@@ -8,7 +8,7 @@ public class OpenDialogue : MonoBehaviour {
 
 	void OnMouseDown(){
 		if (GameObject.FindGameObjectWithTag ("Dialogue") == null) {
-			Instantiate (dialogue);
+			Instantiate(dialogue, new Vector3(Camera.main.transform.position.x, 0.4f, 0), Quaternion.identity);
 		}
 
 		if (gameObject.tag == "Bag") {
