@@ -7,7 +7,6 @@ public class NeedKeyDoor : MonoBehaviour {
 	public string need;
 	public GameObject fader;
 	public GameObject reason;
-	public AudioClip Opening;
 	
 	void OnMouseDown(){
 		string hasKey = PlayerPrefs.GetString ("HasKey?");
