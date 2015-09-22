@@ -13,8 +13,6 @@ public class Fader_Behaviour : MonoBehaviour {
 		if(PlayerPrefs.HasKey(Application.loadedLevelName + "x")){
 			float positionX = PlayerPrefs.GetFloat (Application.loadedLevelName + "x");
 			float positionY = PlayerPrefs.GetFloat (Application.loadedLevelName + "y");
-			GameObject bg = GameObject.FindGameObjectWithTag("Background");
-			bg.transform.position = new Vector2(positionX, positionY);
 		}
 
 		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
