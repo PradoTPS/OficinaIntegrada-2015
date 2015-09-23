@@ -13,9 +13,21 @@ public class AudioController : MonoBehaviour {
 			switch (hit.transform.gameObject.tag) {
 				
 				case "SecondaryObject":
-					hit.transform.gameObject.audio.Play();
+					hit.transform.audio.Play();
 				
 					break;
+
+				case "Bag":
+					hit.transform.audio.Play();
+				
+					break;
+
+				/*case "Floor":
+					while(GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().isMoving){
+						GameObject.FindGameObjectWithTag("Player").transform.audio.Play();
+					}
+
+					break;*/
 			}
 			
 		}

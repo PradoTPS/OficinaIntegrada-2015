@@ -10,11 +10,6 @@ public class Fader_Behaviour : MonoBehaviour {
 	
 	void Awake () {
 
-		if(PlayerPrefs.HasKey(Application.loadedLevelName + "x")){
-			float positionX = PlayerPrefs.GetFloat (Application.loadedLevelName + "x");
-			float positionY = PlayerPrefs.GetFloat (Application.loadedLevelName + "y");
-		}
-
 		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
 		if (FadeTo == "Black") {
 			guiTexture.color = Color.clear;

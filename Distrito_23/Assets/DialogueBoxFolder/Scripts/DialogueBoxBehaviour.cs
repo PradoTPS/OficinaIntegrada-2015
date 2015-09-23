@@ -29,7 +29,7 @@ public class DialogueBoxBehaviour : MonoBehaviour {
 			Destroy (gameObject);
 			currentText --;
 			if(instantiateNext != null){
-				Instantiate(instantiateNext);
+				Instantiate(instantiateNext, new Vector3(Camera.main.transform.position.x, 0.4f, 0), Quaternion.identity);
 			}
 		}
 

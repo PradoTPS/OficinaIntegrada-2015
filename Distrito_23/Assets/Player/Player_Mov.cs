@@ -6,7 +6,7 @@ public class Player_Mov : MonoBehaviour {
 	private Vector2 startPosition;
 	private Vector2 finalPosition;
 	private float speed = 2;
-	private bool isMoving;
+	public bool isMoving;
 	public bool moveAllowed;
 	bool facingRight = true;
 	Animator anim;
