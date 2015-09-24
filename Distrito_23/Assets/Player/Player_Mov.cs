@@ -58,11 +58,6 @@ public class Player_Mov : MonoBehaviour {
 			}
 		}
 	}
-	
-	void FixedUpdate () {
-		playerMov ();
-		SavePosition ();
-	}
 
 	void Flip(){
 		facingRight = !facingRight;
@@ -71,15 +66,28 @@ public class Player_Mov : MonoBehaviour {
 		transform.localScale = charScale;
 	}
 
-	void OnDisable(){
-		isMoving = false;
-	}
-	
+	/*public void PlayerAudio(){
+		if (isMoving) {
+			gameObject.audio.Play ();
+		} else {
+			gameObject.audio.Stop ();
+		}
+	}*/
+
 	void SavePosition(){
 		PlayerPrefs.SetFloat(Application.loadedLevelName + "x", gameObject.transform.position.x);
 		PlayerPrefs.SetFloat(Application.loadedLevelName + "y", gameObject.transform.position.y);
 	}
 	
+	void FixedUpdate () {
+		playerMov ();
+		SavePosition ();
+	}
+
+	/*void OnDisable(){
+		isMoving = false;
+	}*/
+
 	void OnApplicationQuit(){
 		PlayerPrefs.DeleteAll ();
 	}

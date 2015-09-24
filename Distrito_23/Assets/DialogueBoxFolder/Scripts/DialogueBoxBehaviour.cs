@@ -7,6 +7,7 @@ public class DialogueBoxBehaviour : MonoBehaviour {
 	public string[] texts;
 	public string who;
 	public GameObject instantiateNext;
+	public GameObject instantiateObject;
 	private GameObject text;
 	private GameObject character;
 	private int currentText = 0;
@@ -30,6 +31,9 @@ public class DialogueBoxBehaviour : MonoBehaviour {
 			currentText --;
 			if(instantiateNext != null){
 				Instantiate(instantiateNext, new Vector3(Camera.main.transform.position.x, 0.4f, 0), Quaternion.identity);
+			}
+			if(instantiateObject != null){
+				Instantiate(instantiateObject);
 			}
 		}
 
