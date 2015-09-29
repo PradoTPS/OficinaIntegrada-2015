@@ -33,17 +33,17 @@ public class Player_Mov : MonoBehaviour {
 				anim.SetBool("Mov", true);
 			}
 			
-			if ((hit.collider != null) && (hit.transform.tag == "Door")){
-				finalPosition = new Vector2(hit.transform.gameObject.transform.position.x, hit.transform.position.y); //+ hit.transform.gameObject.renderer.bounds.size.y);
+			if ((hit.collider != null) && (hit.transform.tag == "MoveToObject") || (hit.transform.tag == "Bag") || (hit.transform.tag == "Note")){
+				finalPosition = new Vector2(hit.transform.gameObject.transform.position.x, startPosition.y);
 			} else {
 				finalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				finalPosition = new Vector2(finalPosition.x, finalPosition.y + renderer.bounds.size.y / 2);
-				if(finalPosition.x < gameObject.transform.position.x && facingRight){
-					Flip();
-				}else if(finalPosition.x > gameObject.transform.position.x && !facingRight){
-					Flip ();
-				}
+			}
 
+			if(finalPosition.x < gameObject.transform.position.x && facingRight){
+				Flip();
+			}else if(finalPosition.x > gameObject.transform.position.x && !facingRight){
+				Flip ();
 			}
 			
 			moveAllowed = false;

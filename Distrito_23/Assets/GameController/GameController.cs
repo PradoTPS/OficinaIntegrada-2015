@@ -44,6 +44,18 @@ public class GameController : MonoBehaviour {
 					//}
 					
 					break;
+
+				case "MoveToObject":
+					GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = true;
+					break;
+
+				case "Bag":
+				GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = true;
+					break;
+
+				case "Note":
+				GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = true;
+					break;
 				}
 		}
 	}
