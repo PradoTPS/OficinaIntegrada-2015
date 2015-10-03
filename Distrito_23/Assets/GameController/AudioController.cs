@@ -3,53 +3,72 @@ using System.Collections;
 
 public class AudioController : MonoBehaviour {
 
-	static bool AudioBegin = false; 
+	static bool AudioBegin = false;
+	static bool PlayingTheme;
+	public AudioClip themeMusic;
 
 	void Awake(){
 		if (!AudioBegin) {
-			audio.Play ();
 			DontDestroyOnLoad (gameObject);
 			AudioBegin = true;
-		} 
+			audio.Play ();
+		}
 	}
-	
-	void Update(){
+
+	void OnDisable(){
+		if (Application.loadedLevelName == "Scenes_Playground") {
+			ChangeMusic (themeMusic, 0.3f);
+		}
+	}
+
+	void FixedUpdate(){
 		if (Input.GetMouseButtonDown (0)) {
 			if (GameObject.FindGameObjectWithTag ("Dialogue") == null) {
-				Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-				RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.up, 0.0023f);
+				Vector2 ray = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+				RaycastHit2D hit = Physics2D.Raycast (ray, Vector2.up, 0.0023f);
 				
-				if(hit.collider != null)
-				switch (hit.transform.gameObject.tag) {
+				if (hit.collider != null) {
+					switch (hit.transform.gameObject.tag) {
 					
 					case "SecondaryObject":
-						hit.transform.audio.Play();
+						hit.transform.audio.Play ();
 					
+						break;
+
+					case "MoveToObject":
+						if(hit.collider.GetComponent<OpenDialogue>().inside == true){
+							hit.transform.audio.Play ();
+						}
+						
 						break;
 
 					case "Bag":
-						hit.transform.audio.Play();
+						if(hit.collider.GetComponent<OpenDialogue>().inside == true){
+							hit.transform.audio.Play ();
+						}
 					
 						break;
+					}
+				} 
 
-					/*case "Floor":
-						//GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().PlayerAudio();
-
-						if (GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().isMoving) {
-							GameObject.FindGameObjectWithTag("Player").audio.Play ();
-						} else {
-							GameObject.FindGameObjectWithTag("Player").audio.Stop ();
-						}
-						break;*/
-				}
 			} else {
-				GameObject.FindGameObjectWithTag("Dialogue").audio.Play ();
+				GameObject.FindGameObjectWithTag ("Dialogue").audio.Play ();
 			}
 		}
 
-		if(Application.loadedLevelName == "Scenes_Playground"){
-			audio.Stop();
-			AudioBegin = false;
+		try{
+			GameObject.FindGameObjectWithTag ("Player").GetComponent<Player_Mov> ().PlayerAudio ();
+		} catch {
 		}
+
+		if (Application.loadedLevelName == "Scenes_Playground") {
+			GetComponent<AudioController>().enabled = false;
+		}
+	}
+
+	void ChangeMusic(AudioClip music, float volume){
+		audio.clip = music;
+		audio.volume = volume;
+		audio.Play ();
 	}
 }

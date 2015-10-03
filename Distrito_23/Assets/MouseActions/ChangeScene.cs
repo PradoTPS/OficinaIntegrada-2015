@@ -4,10 +4,24 @@ using System.Collections;
 public class ChangeScene : MonoBehaviour {
 
 	public int scene;
+	private bool inside;
 	public GameObject fader;
 
 	void OnMouseDown(){
-		StartCoroutine (change());
+		if (inside) {
+			StartCoroutine (change ());
+		}
+		if (gameObject.tag == "Arrow") {
+			StartCoroutine (change ());
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D other){
+		inside = true;
+	}
+
+	void OnTriggerExit2D(Collider2D other){
+		inside = false;
 	}
 
 	IEnumerator change(){

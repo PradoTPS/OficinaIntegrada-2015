@@ -33,7 +33,7 @@ public class Player_Mov : MonoBehaviour {
 				anim.SetBool("Mov", true);
 			}
 			
-			if ((hit.collider != null) && (hit.transform.tag == "MoveToObject") || (hit.transform.tag == "Bag") || (hit.transform.tag == "Note")){
+			if ((hit.collider != null) && (hit.transform.tag == "MoveToObject") || (hit.transform.tag == "Bag") || (hit.transform.tag == "NoteDoor") || (hit.transform.tag == "Door") || (hit.transform.tag == "LockedDoor")){
 				finalPosition = new Vector2(hit.transform.gameObject.transform.position.x, startPosition.y);
 			} else {
 				finalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,11 +51,13 @@ public class Player_Mov : MonoBehaviour {
 		} else if (isMoving) {
 			gameObject.transform.position = Vector2.MoveTowards (startPosition, finalPosition, Time.deltaTime * speed);
 			startPosition = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
-			if(startPosition == finalPosition){
-				isMoving = false; anim.SetBool("Mov", false);
-			}else{
-				isMoving = true;
-			}
+		}
+
+		if(startPosition == finalPosition){
+			isMoving = false;
+			anim.SetBool("Mov", false);
+		}else{
+			isMoving = true;
 		}
 	}
 
@@ -66,13 +68,13 @@ public class Player_Mov : MonoBehaviour {
 		transform.localScale = charScale;
 	}
 
-	/*public void PlayerAudio(){
-		if (isMoving) {
+	public void PlayerAudio(){
+		if (isMoving && gameObject.audio.isPlaying == false) {
 			gameObject.audio.Play ();
-		} else {
+		} else if(!isMoving){
 			gameObject.audio.Stop ();
 		}
-	}*/
+	}
 
 	void SavePosition(){
 		PlayerPrefs.SetFloat(Application.loadedLevelName + "x", gameObject.transform.position.x);
@@ -83,10 +85,6 @@ public class Player_Mov : MonoBehaviour {
 		playerMov ();
 		SavePosition ();
 	}
-
-	/*void OnDisable(){
-		isMoving = false;
-	}*/
 
 	void OnApplicationQuit(){
 		PlayerPrefs.DeleteAll ();
