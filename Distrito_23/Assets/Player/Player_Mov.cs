@@ -6,6 +6,8 @@ public class Player_Mov : MonoBehaviour {
 	private Vector2 startPosition;
 	private Vector2 finalPosition;
 	private float speed = 2;
+	public float minorBound;
+	public float majorBound;
 	public bool isMoving;
 	public bool moveAllowed;
 	bool facingRight = true;
@@ -48,7 +50,7 @@ public class Player_Mov : MonoBehaviour {
 			
 			moveAllowed = false;
 			
-		} else if (isMoving) {
+		} else if (isMoving) { 
 			gameObject.transform.position = Vector2.MoveTowards (startPosition, finalPosition, Time.deltaTime * speed);
 			startPosition = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
 		}
@@ -84,6 +86,12 @@ public class Player_Mov : MonoBehaviour {
 	void FixedUpdate () {
 		playerMov ();
 		SavePosition ();
+
+		/*if (transform.position.x <= minorBound) {
+			transform.position.x = minorBound;
+		} else if (transform.position.x <= majorBound) {
+			transform.position.x = majorBound;
+		}*/
 	}
 
 	void OnApplicationQuit(){

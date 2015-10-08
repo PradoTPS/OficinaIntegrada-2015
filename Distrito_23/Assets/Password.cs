@@ -5,6 +5,7 @@ using System.Collections;
 public class Password : MonoBehaviour {
 
 	public GameObject openBank;
+	public GameObject speech;
 	private GameObject text;
 
 	void Update(){
@@ -17,59 +18,60 @@ public class Password : MonoBehaviour {
 			if(hit.collider != null){
 				switch (hit.transform.gameObject.name) {
 					case "1":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "1";
 					break;
 
 					case "2":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "2";
 					break;
 
 					case "3":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "3";
 					break;
 
 					case "4":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "4";
 					break;
 
 					case "5":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "5";
 					break;
 
 					case "6":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "6";
 					break;
 
 					case "7":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "7";
 					break;
 
 					case "8":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "8";
 					break;
 
 					case "9":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "9";
 					break;
 
 					case "0":
-						if(text.GetComponent<Text>().text.Length <= 6)
+						if(text.GetComponent<Text>().text.Length < 4)
 							text.GetComponent<Text>().text = text.GetComponent<Text>().text + "0";
 					break;
 
 					case "Enter":
-						if(text.GetComponent<Text>().text == "120799"){
+						if(text.GetComponent<Text>().text == "2003"){
 							Instantiate(openBank);
 							Destroy (gameObject);
+							Instantiate(speech);
 						} else {
 							text.GetComponent<Text>().text = null;
 						}
@@ -79,8 +81,8 @@ public class Password : MonoBehaviour {
 						text.GetComponent<Text>().text = null;
 					break;
 
-					case "Password(Clone)":
-						Destroy(hit.transform.gameObject);
+					case "Out":
+						Destroy(gameObject);
 					break;
 				}
 			}
