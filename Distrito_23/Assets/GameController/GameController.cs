@@ -7,6 +7,10 @@ public class GameController : MonoBehaviour {
 	private bool hldnItem = false;
 	private bool carry = false;*/
 
+	void OnApplicationQuit() {
+		PlayerPrefs.DeleteAll();
+	}
+
 	void Update(){
 		if (Input.GetMouseButtonDown (0)) {
 
@@ -62,6 +66,11 @@ public class GameController : MonoBehaviour {
 
 					case "Bag":
 						GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = true;
+					break;
+					
+					case "Collider":
+							GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = false
+							;
 						break;
 					}
 				}

@@ -5,7 +5,7 @@ public class Player_Mov : MonoBehaviour {
 	
 	private Vector2 startPosition;
 	private Vector2 finalPosition;
-	private float speed = 2;
+	private float speed = 4;
 	public float minorBound;
 	public float majorBound;
 	public bool isMoving;
@@ -22,7 +22,13 @@ public class Player_Mov : MonoBehaviour {
 			gameObject.transform.position = new Vector2 (positionX, positionY);
 		}
 	}
-	
+
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.tag == "Collider") {
+			startPosition = finalPosition;
+		}
+	}
+
 	void playerMov(){
 		if (moveAllowed) {
 			Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
