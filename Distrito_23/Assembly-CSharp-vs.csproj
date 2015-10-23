@@ -54,6 +54,7 @@
      <Compile Include="Assets\Faders\Fader_Behaviour.cs" />
      <Compile Include="Assets\GameController\AudioController.cs" />
      <Compile Include="Assets\GameController\GameController.cs" />
+     <Compile Include="Assets\IntroPass.cs" />
      <Compile Include="Assets\MouseActions\ChangeScene.cs" />
      <Compile Include="Assets\NeedKeyDoor.cs" />
      <Compile Include="Assets\Password.cs" />

@@ -5,7 +5,7 @@ public class Player_Mov : MonoBehaviour {
 	
 	private Vector2 startPosition;
 	private Vector2 finalPosition;
-	private float speed = 4;
+	private float speed = 2.3f;
 	public float minorBound;
 	public float majorBound;
 	public bool isMoving;
