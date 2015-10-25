@@ -3,6 +3,7 @@ using System.Collections;
 
 public class OpenDialogue : MonoBehaviour {
 
+	public GameObject safe;
 	public GameObject dialogue;
 	public bool inside;
 	
@@ -37,5 +38,17 @@ public class OpenDialogue : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		inside = false;
+	}
+
+	
+	void Update(){
+
+		string hasTakenBag = PlayerPrefs.GetString("hasTakenBag");
+
+		if (Application.loadedLevel == 5 && gameObject.tag == "MoveToObject" && hasTakenBag == "true") {
+			Instantiate(safe);
+			Destroy(gameObject);
+		}
+		
 	}
 }

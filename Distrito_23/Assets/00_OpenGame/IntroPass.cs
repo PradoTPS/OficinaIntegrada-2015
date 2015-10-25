@@ -7,6 +7,8 @@ public class IntroPass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		PlayerPrefs.SetString("hasTakenBag", "false");
+		PlayerPrefs.SetString("HasKey?", "false");
 		StartCoroutine (helloworld());
 	}
 		
