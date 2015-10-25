@@ -29,7 +29,7 @@ public class Player_Mov : MonoBehaviour {
 		}
 	}
 
-	void playerMov(string bag){
+	void playerMov(){
 		if (moveAllowed) {
 			Vector2 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.up, 0.0023f);
@@ -38,11 +38,8 @@ public class Player_Mov : MonoBehaviour {
 				startPosition = new Vector2 (gameObject.transform.position.x, gameObject.transform.position.y);
 					
 				isMoving = true;
-				if(bag == "false"){
-					anim.SetBool("Mov", true);
-				} else {
-					anim.SetBool("Walk_Bag", true);
-				}
+				anim.SetBool("Mov", true);
+
 			}
 			
 			if ((hit.collider != null) && (hit.transform.tag == "MoveToObject") || (hit.transform.tag == "Bag") || (hit.transform.tag == "NoteDoor") || (hit.transform.tag == "Door") || (hit.transform.tag == "LockedDoor")){
@@ -68,7 +65,6 @@ public class Player_Mov : MonoBehaviour {
 		if(startPosition == finalPosition){
 			isMoving = false;
 			anim.SetBool("Mov", false);
-			anim.SetBool("Walk_Bag", false);
 		}else{
 			isMoving = true;
 		}
@@ -95,8 +91,7 @@ public class Player_Mov : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-		string hasBag = PlayerPrefs.GetString("hasBag");
-		playerMov (hasBag);
+		playerMov ();
 		SavePosition ();
 
 		/*if (transform.position.x <= minorBound) {
