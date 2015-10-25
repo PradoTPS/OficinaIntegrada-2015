@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\00_OpenGame\IntroPass.cs" />
      <Compile Include="Assets\01_Intro\ChangeSceneAfterDialogue.cs" />
      <Compile Include="Assets\CameraBehaviour.cs" />
      <Compile Include="Assets\DialogueBoxFolder\Scripts\DialogueBoxBehaviour.cs" />
@@ -54,7 +55,6 @@
      <Compile Include="Assets\Faders\Fader_Behaviour.cs" />
      <Compile Include="Assets\GameController\AudioController.cs" />
      <Compile Include="Assets\GameController\GameController.cs" />
-     <Compile Include="Assets\IntroPass.cs" />
      <Compile Include="Assets\MouseActions\ChangeScene.cs" />
      <Compile Include="Assets\NeedKeyDoor.cs" />
      <Compile Include="Assets\Password.cs" />

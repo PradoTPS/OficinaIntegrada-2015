@@ -14,7 +14,7 @@ public class IntroPass : MonoBehaviour {
 		yield return new WaitForSeconds (3);
 		Instantiate (Fade);
 		yield return new WaitForSeconds (3);
-		Application.LoadLevel (0);
+		Application.LoadLevel (1);
 	}
 
 }
