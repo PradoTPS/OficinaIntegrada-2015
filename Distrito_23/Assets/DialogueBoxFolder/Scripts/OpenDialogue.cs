@@ -6,7 +6,7 @@ public class OpenDialogue : MonoBehaviour {
 	public GameObject safe;
 	public GameObject dialogue;
 	public bool inside;
-	
+
 	void OnMouseDown(){
 		if (inside) {
 			if(gameObject.tag == "Bag") {

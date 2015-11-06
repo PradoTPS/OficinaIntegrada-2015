@@ -5,6 +5,7 @@ public class AudioController : MonoBehaviour {
 
 	static bool AudioBegin = false;
 	static bool PlayingTheme;
+	private bool changed = false;
 	public AudioClip themeMusic;
 
 	void Awake(){
@@ -12,12 +13,6 @@ public class AudioController : MonoBehaviour {
 			DontDestroyOnLoad (gameObject);
 			AudioBegin = true;
 			audio.Play ();
-		}
-	}
-
-	void OnDisable(){
-		if (Application.loadedLevelName == "Scenes_Playground") {
-			ChangeMusic (themeMusic, 0.3f);
 		}
 	}
 
@@ -61,8 +56,13 @@ public class AudioController : MonoBehaviour {
 		} catch {
 		}
 
-		if (Application.loadedLevelName == "Scenes_Playground") {
-			GetComponent<AudioController>().enabled = false;
+		if (Application.loadedLevelName == "Scenes_Playground" && !changed) {
+			ChangeMusic (themeMusic, 0.3f);
+			changed = true;
+		}
+		if (Application.loadedLevelName == "OpenScene") {
+			changed = false;
+			Destroy (gameObject);
 		}
 	}
 

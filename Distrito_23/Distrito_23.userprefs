@@ -1,6 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GameController\AudioController.cs">
+    <Files>
+      <File FileName="Assets\DialogueBoxFolder\Scripts\OpenDialogue.cs" Line="10" Column="21" />
+      <File FileName="Assets\DialogueBoxFolder\Scripts\DialogueBoxBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\GameController\AudioController.cs" Line="17" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

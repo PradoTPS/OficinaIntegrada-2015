@@ -53,6 +53,7 @@
      <Compile Include="Assets\DialogueBoxFolder\Scripts\OpenDialogue.cs" />
      <Compile Include="Assets\DialogueBoxFolder\Scripts\continuousFade.cs" />
      <Compile Include="Assets\Faders\Fader_Behaviour.cs" />
+     <Compile Include="Assets\FinalScene.cs" />
      <Compile Include="Assets\GameController\AudioController.cs" />
      <Compile Include="Assets\GameController\GameController.cs" />
      <Compile Include="Assets\MouseActions\ChangeScene.cs" />
