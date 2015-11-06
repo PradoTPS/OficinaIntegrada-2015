@@ -84,6 +84,10 @@ public class Password : MonoBehaviour {
 					case "Out":
 						Destroy(gameObject);
 					break;
+
+					/*case "Nothing":
+
+					break;*/
 				}
 			}
 		}

@@ -6,6 +6,7 @@ public class DialogueBoxBehaviour : MonoBehaviour {
 
 	public string[] texts;
 	public string who;
+	public bool centerOfScreen;
 	public GameObject instantiateNext;
 	public GameObject instantiateObject;
 	private GameObject text;
@@ -32,8 +33,10 @@ public class DialogueBoxBehaviour : MonoBehaviour {
 			if(instantiateNext != null){
 				Instantiate(instantiateNext, new Vector3(Camera.main.transform.position.x, 0.4f, 0), Quaternion.identity);
 			}
-			if(instantiateObject != null){
+			if(instantiateObject != null && !centerOfScreen){
 				Instantiate(instantiateObject);
+			} else if(instantiateObject != null && centerOfScreen){
+				Instantiate(instantiateObject, new Vector3(Camera.main.transform.position.x, 0f, 0), Quaternion.identity);
 			}
 		}
 
