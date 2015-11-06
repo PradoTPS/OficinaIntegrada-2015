@@ -69,8 +69,7 @@ public class GameController : MonoBehaviour {
 					break;
 					
 					case "Collider":
-							GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = false
-							;
+						GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Mov>().moveAllowed = false;
 						break;
 					}
 				}
